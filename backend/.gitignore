@@ -1,0 +1,50 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Editors
+.vscode/
+.idea/
+
+# dependencies
+venv
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
