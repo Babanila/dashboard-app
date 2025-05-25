@@ -1,0 +1,9 @@
+{
+  "name": "dashboard-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "docker": "docker-compose up --build",
+    "docker-down": "docker-compose down"
+  }
+}
