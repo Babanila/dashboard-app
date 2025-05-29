@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
     <footer className="w-full min-w-[20rem] flex flex-col items-center justify-between p-4 text-white text-base bg-primary fixed bottom-0 z-[1000] max-w-7xl">
       <div className="w-full flex flex-col md:flex-row justify-between items-center py-6 space-y-4 md:space-y-0">
         <NavLink to="/">
-          <img src={logo} alt="Dash Logo" className="w-20 lg:w-30 h-auto text-white" />
+          <img src={logo} alt="Dash Logo" className="w-20 md:w-30 h-auto text-white" />
         </NavLink>
 
-        <nav className="mt-4 mb-4 flex flex-col lg:flex-row items-start justify-center space-y-4 lg:space-x-4 lg:space-y-0 text-base">
+        <nav className="mt-4 mb-4 flex flex-col md:flex-row items-start justify-center space-y-4 md:space-x-4 md:space-y-0 text-base">
           <NavLinks navItems={navItems} />
         </nav>
 
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full lg:mt-6 text-center text-sm text-gray-500">
+      <div className="w-full md:mt-6 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} All rights reserved.
       </div>
     </footer>

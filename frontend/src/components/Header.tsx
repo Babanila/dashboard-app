@@ -1,32 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router';
+import logo from '../assets/dash-logo.webp';
+import hamburger from '../assets/hamburger.svg';
+import NavLinks from './NavLinks';
 
-type HeaderProps = {
-  classname: string;
-  logoSrc: string;
-  imgClassname: string;
-};
+const headerNavItems = ['Products', 'Customer', 'Contact', 'About'];
 
-const navItems = ['Products', 'Customer', 'Contact', 'About'];
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export function Header({ classname, logoSrc, imgClassname }: HeaderProps) {
   return (
-    <header className={classname}>
+    <header className="w-full min-w-[20rem] max-w-[80rem] flex flex-row items-center justify-between p-4 text-white text-base uppercase bg-primary fixed top-0 z-[1000]">
       <NavLink to="/">
-        <img src={logoSrc} alt="Dash Logo" className={imgClassname} />
+        <div>
+          <img src={logo} alt="Dash Logo" className="w-20 md:w-30 h-auto" />
+        </div>
       </NavLink>
 
-      <nav className="nav-item">
-        {navItems.map((ni) => {
-          const exactPath = ni.toLowerCase();
-
-          return (
-            <NavLink to={`/${exactPath}`} key={ni}>
-              {ni}
-            </NavLink>
-          );
-        })}
+      <nav className="flex flex-row items-start space-x-4 hidden md:block">
+        <NavLinks navItems={headerNavItems} />
       </nav>
+
+      <div className="relative flex flex-col items-start space-x-4 block md:hidden">
+        <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
+          <img src={hamburger} alt="Menu Icon" className="w-10 h-auto" />
+        </button>
+
+        <nav
+          className={`absolute top-[3.2rem] right-[-1rem] flex flex-col justify-center items-center p-4 space-y-4 bg-primary ${
+            menuOpen ? 'flex' : 'hidden'
+          }`}
+        >
+          <NavLinks navItems={headerNavItems} />
+        </nav>
+      </div>
     </header>
   );
 }
+
+export default Header;
