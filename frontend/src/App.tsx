@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="relative h-screen w-full min-w-xs flex flex-col items-center max-w-7xl">
+    <div className="relative h-screen w-full min-w-[20rem] max-w-[80rem] flex flex-col items-center">
       <BrowserRouter>
         <Header />
         <Routes>

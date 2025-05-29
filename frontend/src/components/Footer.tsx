@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   const navItems = ['About', 'Products', 'Customer', 'Contact'];
 
   return (
-    <footer className="w-full min-w-[20rem] flex flex-col items-center justify-between p-4 text-white text-base bg-primary fixed bottom-0 z-[1000] max-w-7xl">
+    <footer className="w-full min-w-[20rem] flex flex-col items-center justify-between p-8 text-white text-base bg-primary fixed bottom-0 z-[1000] max-w-7xl">
       <div className="w-full flex flex-col md:flex-row justify-between items-center py-6 space-y-4 md:space-y-0">
         <NavLink to="/">
           <img src={logo} alt="Dash Logo" className="w-20 md:w-30 h-auto text-white" />
