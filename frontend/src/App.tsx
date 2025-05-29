@@ -12,18 +12,20 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/customer" element={<Customer />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<Product />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div className="relative h-screen w-full min-w-xs flex flex-col items-center max-w-7xl">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/customer" element={<Customer />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<Product />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 
