@@ -12,7 +12,7 @@ function Header() {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-0 z-[1000] w-full min-w-[20rem] max-w-[80rem] flex items-center justify-between px-8 py-4 text-secondary bg-primary">
+    <header className="fixed top-0 z-[1000] w-full min-w-[20rem] max-w-[80rem] flex items-center justify-between px-8 py-4 text-secondary bg-primary border-b-1 border-light-gray5 ">
       <NavLink to="/" className="shrink-0">
         <img src={logo} alt="Dash Logo" className="w-20 md:w-30 h-auto" />
       </NavLink>
