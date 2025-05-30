@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useProductDetails } from '@/hooks/useProduct';
 import Button from '@/components/Button';
@@ -42,14 +42,13 @@ export default Product;
 export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = product.images;
-  const imagesLength = product.images.length > 1;
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  const onChangeImage = (direction: 'previous' | 'next') => {
+    setCurrentImageIndex((prev) => {
+      const lastIndex = images.length - 1;
+      if (direction === 'previous') return prev === 0 ? lastIndex : prev - 1;
+      return prev === lastIndex ? 0 : prev + 1;
+    });
   };
 
   return (
@@ -60,15 +59,15 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
           src={images[currentImageIndex]}
           alt={product.title}
         />
-        {imagesLength && (
+        {images.length > 1 && (
           <>
             <Button
-              onClick={prevImage}
+              onClick={() => onChangeImage('previous')}
               className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-primary text-secondary hover:bg-bgreen p-2 rounded-full"
               children="&lt;"
             />
             <Button
-              onClick={nextImage}
+              onClick={() => onChangeImage('next')}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-secondary hover:bg-bgreen p-2 rounded-full"
               children="&gt;"
             />
@@ -87,30 +86,33 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
         </div>
 
         <div className="text-sm space-y-1 text-light-gray5">
-          <p>
-            <strong>Availability:</strong>{' '}
-            <span className="text-bgreen font-medium">{product.availabilityStatus}</span>
-          </p>
-          <p>
-            <strong>SKU:</strong> {product.sku}
-          </p>
-          <p>
-            <strong>Rating:</strong> {product.rating} / 5
-          </p>
+          <Tile
+            inputKey="Availability"
+            value={<span className="text-bgreen font-medium">{product.availabilityStatus}</span>}
+          />
+          <Tile inputKey="SKU" value={product.sku} />
+          <Tile inputKey="Rating" value={Number(product.shippingInformation) / 5} />
         </div>
 
         <div className="text-sm space-y-1 text-light-gray5">
-          <p>
-            <strong>Shipping:</strong> {product.shippingInformation}
-          </p>
-          <p>
-            <strong>Warranty:</strong> {product.warrantyInformation}
-          </p>
-          <p>
-            <strong>Return Policy:</strong> {product.returnPolicy}
-          </p>
+          <Tile inputKey="Shipping" value={product.shippingInformation} />
+          <Tile inputKey="Warranty" value={product.warrantyInformation} />
+          <Tile inputKey="Return Policy" value={product.returnPolicy} />
         </div>
       </div>
     </div>
+  );
+};
+
+type TileProps = {
+  inputKey: string;
+  value: ReactNode;
+};
+
+export const Tile: FC<TileProps> = ({ inputKey, value }) => {
+  return (
+    <p>
+      <strong>{inputKey}:</strong> {value}
+    </p>
   );
 };
