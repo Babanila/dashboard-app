@@ -4,25 +4,24 @@ import { PAGE_SIZE } from '@/utils/constant';
 const BASE_URL = import.meta.env.VITE_APP_SERVER_URL || '';
 
 export const createClient = (axios: AxiosInstance, baseUrl: string = BASE_URL) => {
-  const getAllProducts = async (signal: GenericAbortSignal) => {
+  const getAllProducts = async () => {
     // Check query in session storage
-    const storedProducts = sessionStorage.getItem("all-products");
+    const storedProducts = sessionStorage.getItem('all-products');
 
-    if (storedProducts) {
+    if (storedProducts && storedProducts.length > 0) {
       return JSON.parse(storedProducts);
     }
 
     const url = `${baseUrl}/api/v1/products`;
-
     try {
-      const response = await axios.get(url, { signal });
+      const response = await axios.get(url);
 
       if (response.data.Error) {
         throw new Error(response.data.Error);
       }
 
-      const result = response.data.Search?.slice(0, PAGE_SIZE) || [];
-      sessionStorage.setItem("all-products", JSON.stringify(result));
+      const result = response.data.products || [];
+      sessionStorage.setItem('all-products', JSON.stringify(result));
       return result;
     } catch (error) {
       console.error(error);
@@ -30,11 +29,16 @@ export const createClient = (axios: AxiosInstance, baseUrl: string = BASE_URL) =
     }
   };
 
-  const getProducts = async (query: string, limit: number, skip: number, signal: GenericAbortSignal) => {
+  const getProducts = async (
+    query: string,
+    limit: number,
+    skip: number,
+    signal: GenericAbortSignal,
+  ) => {
     // Check query in session storage
     const storedQuery = sessionStorage.getItem(query);
 
-    if (storedQuery) {
+    if (storedQuery && storedQuery.length > 0) {
       return JSON.parse(storedQuery);
     }
 
@@ -48,7 +52,7 @@ export const createClient = (axios: AxiosInstance, baseUrl: string = BASE_URL) =
         throw new Error(response.data.Error);
       }
 
-      const result = response.data.Search?.slice(0, PAGE_SIZE) || [];
+      const result = response.data.products?.slice(0, PAGE_SIZE) || [];
       sessionStorage.setItem(query, JSON.stringify(result));
       return result;
     } catch (error) {

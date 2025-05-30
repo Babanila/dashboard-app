@@ -23,7 +23,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src", "./jest.setup.ts"],
+  "include": ["src", "./jest.setup.ts"]
   // "files": [],
   // "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
