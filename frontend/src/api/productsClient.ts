@@ -1,7 +1,7 @@
 import { AxiosInstance, GenericAbortSignal } from 'axios';
 import { PAGE_SIZE } from '@/utils/constant';
 
-const BASE_URL = process.env.REACT_APP_SERVER_URL || '';
+const BASE_URL = import.meta.env.VITE_APP_SERVER_URL || '';
 
 export const createClient = (axios: AxiosInstance, baseUrl: string = BASE_URL) => {
   const getAllProducts = async (signal: GenericAbortSignal) => {
