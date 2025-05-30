@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router';
 import logo from '../assets/dash-logo.webp';
 import hamburger from '../assets/hamburger.svg';
+import Button from './Button';
 import NavLinks from './NavLinks';
 
 const headerNavItems = ['Products', 'Customer', 'Contact', 'About'];
@@ -23,9 +24,9 @@ function Header() {
 
       {/* Mobile Navigation */}
       <div className="md:hidden relative">
-        <button onClick={toggleMenu} aria-label="Toggle menu">
+        <Button onClick={toggleMenu} aria-label="Toggle menu">
           <img src={hamburger} alt="Menu Icon" className="w-10 h-auto" />
-        </button>
+        </Button>
 
         {menuOpen && (
           <nav className="absolute right-[-2rem] top-[3.2rem] flex flex-col items-center p-4 space-y-4 bg-primary shadow-lg z-50">
