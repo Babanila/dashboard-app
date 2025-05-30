@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 type SocialLinkProps = {
   href: string;
   label: string;
-  path: ReactNode;
+  path: string;
   iconSize?: number;
 };
 
@@ -13,11 +13,16 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, label, path, iconSize = 8
       href={href}
       target="_blank"
       rel="noopener"
-      className="text-white hover:text-bgreen"
+      className="text-secondary hover:text-bgreen"
       aria-label={label}
     >
-      <svg className={`w-${iconSize} h-${iconSize}`} fill="currentColor" viewBox="0 0 24 24">
-        {path}
+      <svg
+        className={`w-${iconSize} h-${iconSize}`}
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d={path} />
       </svg>
     </a>
   );
