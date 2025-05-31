@@ -15,7 +15,7 @@ const Product: React.FC = () => {
   };
 
   return (
-    <div className="h-full flex flex-col justify-center items-center space-y-8 bg-transparent">
+    <div className="h-full flex flex-col justify-center items-center space-y-8 bg-primary">
       {productDetails && <ProductCard product={productDetails} />}
 
       {isLoading && (

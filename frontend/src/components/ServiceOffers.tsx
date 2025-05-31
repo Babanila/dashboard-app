@@ -26,7 +26,7 @@ type SServiceOffersProps = {
 
 const ServiceOffers: React.FC = () => {
   return (
-    <section className="py-16 px-6 mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <section className="w-full bg-primary py-16 px-6 mx-auto grid md:grid-cols-3 gap-8 text-center">
       {serviceOffers.map(({ id, title, description }: SServiceOffersProps) => (
         <div key={id}>
           <h3 className="text-xl font-semibold mb-2">{title}</h3>

@@ -3,9 +3,14 @@ import { Outlet } from 'react-router';
 
 const Layout: React.FC = () => {
   return (
-    <main className="mt-[65px] w-full h-full min-h-[80vh] flex flex-col justify-center items-center bg-primary py-8">
-      <Outlet />
-    </main>
+    <div className="w-full h-full bg-primary text-secondary flex flex-col">
+      {/* Main content area with margin-top for header offset and min height for full view minus (footer+header) */}
+      <main className="flex-grow mt-[65px] flex justify-center bg-pink-200 min-h-[79vh]">
+        <div className="w-full max-w-7xl">
+          <Outlet />
+        </div>
+      </main>
+    </div>
   );
 };
 
