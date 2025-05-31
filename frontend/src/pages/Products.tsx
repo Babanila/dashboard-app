@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useDebounce } from '@/hooks/useDebounce';
 import { useProducts } from '@/hooks/useProducts';
 import { useProductSearch } from '@/hooks/useProductSearch';
 import { ProductGroup } from '@/components/FeaturedProducts';
@@ -10,23 +11,32 @@ const Products: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const { isLoading, error, products } = useProducts();
-  const { products: filteredProducts } = useProductSearch(searchTerm);
+  const [triggerSearch, setTriggerSearch] = useState(false);
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const shouldSearch = triggerSearch && debouncedSearchTerm.trim().length > 0;
+  const { products: filteredProducts } = useProductSearch(shouldSearch ? debouncedSearchTerm : '');
 
   const displayedProducts = useMemo(() => {
-    return searchTerm.trim() ? filteredProducts : products;
-  }, [searchTerm, filteredProducts, products]);
+    return shouldSearch ? filteredProducts : products;
+  }, [shouldSearch, filteredProducts, products]);
 
   const handleViewProduct = (productId: number) => {
     navigate(`/products/${productId}`);
   };
-  const handleSearch = useCallback(() => {}, []);
+  const handleSearch = useCallback(() => {
+    setTriggerSearch(true);
+  }, []);
 
   return (
     <div className="h-full flex flex-col bg-secondary py-8 space-y-16">
       <SearchInput
         value={searchTerm}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-        onSearch={() => handleSearch()}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          setSearchTerm(e.target.value);
+          setTriggerSearch(false);
+        }}
+        onSearch={handleSearch}
       />
 
       {error && <p className="flex justify-center text-bred">Error searching for products</p>}
@@ -37,10 +47,14 @@ const Products: React.FC = () => {
         </div>
       )}
 
+      {triggerSearch && displayedProducts.length === 0 && (
+        <p className="flex justify-center text-primary">Searched products not available</p>
+      )}
+
       <ProductGroup
         products={displayedProducts}
         onProductView={handleViewProduct}
-        total={products.length}
+        total={displayedProducts.length}
       />
     </div>
   );

@@ -10,9 +10,9 @@ type SearchInputProps = {
 
 const SearchInput = ({ value, onChange, onSearch }: SearchInputProps) => {
   return (
-    <div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-4 h-full">
+    <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-4">
       <TextInput
-        className="w-70 px-4 py-3 rounded text-primary bg-secondary border-1 border-primary outline-bgreen focus:outline-2 md:w-100"
+        className="w-70 max-h-fit px-4 py-3 rounded text-primary bg-secondary border-1 border-primary outline-bgreen focus:outline-2 md:w-100"
         value={value}
         type="text"
         placeholder="Search with product name"
@@ -20,7 +20,7 @@ const SearchInput = ({ value, onChange, onSearch }: SearchInputProps) => {
       />
 
       <Button
-        className="w-30 bg-secondary text-primary font-semibold px-6 py-3 border-1 border-primary rounded-lg hover:bg-bgreen hover:border-bgreen transition cursor-pointer"
+        className="w-30 max-h-fit bg-secondary text-primary font-semibold px-6 py-3 border-1 border-primary rounded-lg hover:bg-bgreen hover:border-bgreen transition cursor-pointer"
         children="Search"
         onClick={onSearch}
       />

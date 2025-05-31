@@ -90,8 +90,9 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
             inputKey="Availability"
             value={<span className="text-bgreen font-medium">{product.availabilityStatus}</span>}
           />
+          <ListTile inputKey="Quantity Available" value={product.stock} />
           <ListTile inputKey="SKU" value={product.sku} />
-          <ListTile inputKey="Rating" value={Number(product.shippingInformation) / 5} />
+          <ListTile inputKey="Rating" value={`${product.rating} / 5`} />
         </div>
 
         <div className="text-sm space-y-2 text-light-gray5">
