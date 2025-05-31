@@ -24,6 +24,7 @@ const Products: React.FC = () => {
   const handleViewProduct = (productId: number) => {
     navigate(`/products/${productId}`);
   };
+  
   const handleSearch = useCallback(() => {
     setTriggerSearch(true);
   }, []);
