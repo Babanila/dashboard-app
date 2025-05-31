@@ -29,6 +29,7 @@ const FeaturedProducts: React.FC = () => {
       {products?.slice(0, 3).map(({ title, description, brand, thumbnail, id }) => {
         return (
           <FeaturedProductCard
+            key={id}
             id={id}
             title={title}
             thumbnail={thumbnail}
