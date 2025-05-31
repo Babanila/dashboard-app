@@ -11,7 +11,7 @@ const Product: React.FC = () => {
   const { isLoading, error, productDetails } = useProductDetails(id);
 
   const handleBack = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   return (
@@ -94,7 +94,7 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
           <ListTile inputKey="Rating" value={Number(product.shippingInformation) / 5} />
         </div>
 
-        <div className="text-sm space-y-1 text-light-gray5">
+        <div className="text-sm space-y-2 text-light-gray5">
           <ListTile inputKey="Shipping" value={product.shippingInformation} />
           <ListTile inputKey="Warranty" value={product.warrantyInformation} />
           <ListTile inputKey="Return Policy" value={product.returnPolicy} />

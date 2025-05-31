@@ -41,12 +41,13 @@ export default FeaturedProducts;
 type ProductGroupProps = {
   products: ProductDetailsProps[];
   onProductView: (id: number) => void;
+  total?: number;
 };
 
-export const ProductGroup: FC<ProductGroupProps> = ({ products, onProductView }) => {
+export const ProductGroup: FC<ProductGroupProps> = ({ products, onProductView, total = 3 }) => {
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      {products?.slice(0, 3).map(({ title, description, brand, thumbnail, id }) => {
+      {products?.slice(0, total).map(({ title, description, brand, thumbnail, id }) => {
         return (
           <FeaturedProductCard
             key={id}
