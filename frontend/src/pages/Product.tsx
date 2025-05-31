@@ -86,30 +86,30 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
         </div>
 
         <div className="text-sm space-y-1 text-light-gray5">
-          <Tile
+          <ListTile
             inputKey="Availability"
             value={<span className="text-bgreen font-medium">{product.availabilityStatus}</span>}
           />
-          <Tile inputKey="SKU" value={product.sku} />
-          <Tile inputKey="Rating" value={Number(product.shippingInformation) / 5} />
+          <ListTile inputKey="SKU" value={product.sku} />
+          <ListTile inputKey="Rating" value={Number(product.shippingInformation) / 5} />
         </div>
 
         <div className="text-sm space-y-1 text-light-gray5">
-          <Tile inputKey="Shipping" value={product.shippingInformation} />
-          <Tile inputKey="Warranty" value={product.warrantyInformation} />
-          <Tile inputKey="Return Policy" value={product.returnPolicy} />
+          <ListTile inputKey="Shipping" value={product.shippingInformation} />
+          <ListTile inputKey="Warranty" value={product.warrantyInformation} />
+          <ListTile inputKey="Return Policy" value={product.returnPolicy} />
         </div>
       </div>
     </div>
   );
 };
 
-type TileProps = {
+type ListTileProps = {
   inputKey: string;
   value: ReactNode;
 };
 
-export const Tile: FC<TileProps> = ({ inputKey, value }) => {
+export const ListTile: FC<ListTileProps> = ({ inputKey, value }) => {
   return (
     <p>
       <strong>{inputKey}:</strong> {value}
