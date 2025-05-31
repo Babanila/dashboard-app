@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { FC, ChangeEvent, useState } from 'react';
 import Button from './Button';
 import TextInput from './TextInput';
 
-const SubscriptionForm: React.FC = () => {
+const SubscriptionForm: FC = () => {
   const [email, setEmail] = useState('');
 
   return (

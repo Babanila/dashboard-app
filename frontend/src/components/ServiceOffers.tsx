@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 const serviceOffers = [
   {
@@ -24,7 +24,7 @@ type SServiceOffersProps = {
   description: string;
 };
 
-const ServiceOffers: React.FC = () => {
+const ServiceOffers: FC = () => {
   return (
     <section className="w-full bg-primary py-16 px-6 mx-auto grid md:grid-cols-3 gap-8 text-center">
       {serviceOffers.map(({ id, title, description }: SServiceOffersProps) => (

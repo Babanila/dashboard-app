@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router';
 import logo from '../assets/dash-logo.webp';
 import NavLinks from './NavLinks';
 import SocialLink from './SocialLink';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   const navItems = ['About', 'Products', 'Customer', 'Contact'];
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 type SocialLinkProps = {
   href: string;
@@ -7,7 +7,7 @@ type SocialLinkProps = {
   iconSize?: number;
 };
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, label, path, iconSize = 8 }) => {
+const SocialLink: FC<SocialLinkProps> = ({ href, label, path, iconSize = 8 }) => {
   return (
     <a
       href={href}

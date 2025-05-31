@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 type LoadingSpinnerProps = {
   size?: string;
   color?: string;
 };
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
+const LoadingSpinner: FC<LoadingSpinnerProps> = ({
   size = 'w-6 h-6',
   color = 'text-bgreen',
 }) => {

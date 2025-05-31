@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink, NavLinkRenderProps } from 'react-router';
 
 type NavLinksProps = {
   navItems: string[];
 };
 
-const NavLinks: React.FC<NavLinksProps> = ({ navItems }) => {
+const NavLinks: FC<NavLinksProps> = ({ navItems }) => {
   return (
     <>
       {navItems.map((ni) => {

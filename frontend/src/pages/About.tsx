@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Tile from '@/components/Tile';
 
-const About: React.FC = () => {
+const About: FC = () => {
   return (
     <div className="h-full flex flex-col bg-secondary text-primary-one px-4 sm:px-6 md:px-20 md:space-y-8 py-12">
       <section className="max-w-5xl mx-auto">

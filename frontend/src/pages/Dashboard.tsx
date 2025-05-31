@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router';
 import Button from '@/components/Button';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import ServiceOffers from '@/components/ServiceOffers';
 import SubscriptionForm from '@/components/SubcriptionForm';
 
-const Dashboard: React.FC = () => {
+const Dashboard: FC = () => {
   return (
     <div className="flex flex-col">
       <WelcomeSection />

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 type ButtonProps = {
   className?: string;
@@ -6,7 +6,7 @@ type ButtonProps = {
   onClick: () => void;
 };
 
-const Button: React.FC<ButtonProps> = ({ className = '', children, onClick }) => {
+const Button: FC<ButtonProps> = ({ className = '', children, onClick }) => {
   return (
     <button className={className} onClick={onClick}>
       {children}

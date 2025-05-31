@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
 type TextInputProps = {
   className?: string;
@@ -8,7 +8,7 @@ type TextInputProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const TextInput: React.FC<TextInputProps> = ({
+const TextInput: FC<TextInputProps> = ({
   className = '',
   placeholder = '',
   value = '',

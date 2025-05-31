@@ -5,7 +5,7 @@ import Button from '@/components/Button';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { ProductDetailsProps } from '@/types';
 
-const Product: React.FC = () => {
+const Product: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { isLoading, error, productDetails } = useProductDetails(id);

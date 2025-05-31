@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
+import React, { FC, ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useProducts } from '@/hooks/useProducts';
@@ -7,7 +7,7 @@ import { ProductGroup } from '@/components/FeaturedProducts';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import SearchInput from '@/components/SearchInput';
 
-const Products: React.FC = () => {
+const Products: FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const { isLoading, error, products } = useProducts();
@@ -24,7 +24,7 @@ const Products: React.FC = () => {
   const handleViewProduct = (productId: number) => {
     navigate(`/products/${productId}`);
   };
-  
+
   const handleSearch = useCallback(() => {
     setTriggerSearch(true);
   }, []);

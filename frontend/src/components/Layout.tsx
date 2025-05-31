@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Outlet } from 'react-router';
 
-const Layout: React.FC = () => {
+const Layout: FC = () => {
   return (
     <div className="w-full h-full bg-primary text-secondary flex flex-col">
       {/* Main content area with margin-top for header offset and min height for full view minus (footer+header) */}
