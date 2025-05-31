@@ -26,14 +26,14 @@ type SServiceOffersProps = {
 
 const ServiceOffers: React.FC = () => {
   return (
-    <>
+    <section className="py-16 px-6 mx-auto grid md:grid-cols-3 gap-8 text-center">
       {serviceOffers.map(({ id, title, description }: SServiceOffersProps) => (
         <div key={id}>
           <h3 className="text-xl font-semibold mb-2">{title}</h3>
           <p>{description}</p>
         </div>
       ))}
-    </>
+    </section>
   );
 };
 

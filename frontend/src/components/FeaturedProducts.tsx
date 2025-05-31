@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { useProducts } from '@/hooks/useProducts';
 import Button from './Button';
 import LoadingSpinner from './LoadingSpinner';
+import { ProductDetailsProps } from '@/types';
 
 const FeaturedProducts: React.FC = () => {
   const navigate = useNavigate();
@@ -25,6 +26,25 @@ const FeaturedProducts: React.FC = () => {
   }
 
   return (
+    <section className="bg-secondary py-16 px-6 text-primary">
+      <div className="mx-auto text-center mb-8">
+        <h2 className="text-3xl font-bold mb-4">Featured Products</h2>
+        <p className="text-gray-600">Curated collections just for you</p>
+      </div>
+      <ProductGroup products={products} onProductView={handleViewProduct} />
+    </section>
+  );
+};
+
+export default FeaturedProducts;
+
+type ProductGroupProps = {
+  products: ProductDetailsProps[];
+  onProductView: (id: number) => void;
+};
+
+export const ProductGroup: FC<ProductGroupProps> = ({ products, onProductView }) => {
+  return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       {products?.slice(0, 3).map(({ title, description, brand, thumbnail, id }) => {
         return (
@@ -35,15 +55,13 @@ const FeaturedProducts: React.FC = () => {
             thumbnail={thumbnail}
             brand={brand}
             description={description}
-            onProductView={() => handleViewProduct(id)}
+            onProductView={() => onProductView(id)}
           />
         );
       })}
     </div>
   );
 };
-
-export default FeaturedProducts;
 
 type FeaturedProductCardProps = {
   id: number;
