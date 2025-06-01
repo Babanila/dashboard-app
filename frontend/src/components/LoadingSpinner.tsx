@@ -5,10 +5,7 @@ type LoadingSpinnerProps = {
   color?: string;
 };
 
-const LoadingSpinner: FC<LoadingSpinnerProps> = ({
-  size = 'w-6 h-6',
-  color = 'text-bgreen',
-}) => {
+const LoadingSpinner: FC<LoadingSpinnerProps> = ({ size = 'w-6 h-6', color = 'text-bgreen' }) => {
   return (
     <svg
       className={`animate-spin ${size} ${color}`}
