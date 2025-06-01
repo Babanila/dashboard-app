@@ -6,8 +6,8 @@ const About: FC = () => {
     <div className="h-full flex flex-col bg-secondary text-primary-one px-4 sm:px-6 md:px-20 md:space-y-8 py-12">
       <section className="max-w-5xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-primary">About Dash</h1>
-        <p className="text-base sm:text-lg leading-relaxed text-primary mb-6">
-          Welcome to <span className="text-bgreen font-bold">Dash</span> — your one-stop destination
+        <p className="text-primary sm:text-lg leading-relaxed mb-6">
+          Welcome to <span className="font-bold">Dash</span> — your one-stop destination
           for premium eCommerce experiences. We provide a seamless and intuitive platform where
           customers can discover, explore, and purchase quality products with ease.
         </p>
@@ -47,7 +47,7 @@ const About: FC = () => {
               <div className="w-content">
                 We’d love to hear from you. If you have questions, feedback, or partnership
                 inquiries, feel free to reach out to us at{' '}
-                <a href="mailto:hello@dashstore.com" className="text-bgreen hover:underline">
+                <a href="mailto:hello@dashstore.com" className="text-bblue hover:text-bgreen hover:underline">
                   hello@dashstore.com
                 </a>
                 .

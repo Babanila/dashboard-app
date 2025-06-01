@@ -13,7 +13,7 @@ export type Dimensions = {
 
 export type Review = {
   comment: string;
-  date: string;
+  date: string | Date;
   rating: number;
   reviewerEmail: string;
   reviewerName: string;

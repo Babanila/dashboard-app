@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 type TileProps = {
-  title: string;
+  title: ReactNode;
   description: ReactNode;
 };
 
