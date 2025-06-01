@@ -1,14 +1,22 @@
 import React, { FC, ReactNode } from 'react';
 
 type ButtonProps = {
+  type?: 'submit' | 'reset' | 'button';
   className?: string;
+  disabled?: boolean;
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
-const Button: FC<ButtonProps> = ({ className = '', children, onClick }) => {
+const Button: FC<ButtonProps> = ({
+  type = 'button',
+  className = '',
+  disabled = false,
+  onClick = () => {},
+  children,
+}) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button type={type} className={className} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
