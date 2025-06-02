@@ -15,7 +15,7 @@ const NavLinks: FC<NavLinksProps> = ({ navItems }) => {
             to={`/${exactPath}`}
             key={ni}
             className={({ isActive }: NavLinkRenderProps) => {
-              return `hover:text-bgreen selection:bg-pink-300 ${
+              return `hover:text-bgreen selection:bg-bblue ${
                 isActive ? 'text-bgreen font-semibold ' : 'text-secondary font-normal'
               }`;
             }}
