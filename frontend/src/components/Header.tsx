@@ -5,7 +5,7 @@ import hamburger from '../assets/hamburger.svg';
 import Button from './Button';
 import NavLinks from './NavLinks';
 
-const headerNavItems = ['Products', 'Customer', 'Contact', 'About'];
+const headerNavItems = ['Products', 'Contact', 'About'];
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

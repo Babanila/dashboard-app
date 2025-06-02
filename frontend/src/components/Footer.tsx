@@ -5,7 +5,7 @@ import NavLinks from './NavLinks';
 import SocialLink from './SocialLink';
 
 const Footer: FC = () => {
-  const navItems = ['About', 'Products', 'Customer', 'Contact'];
+  const navItems = ['About', 'Products', 'Contact'];
 
   return (
     <footer className="w-full min-w-[20rem] max-w-[80rem] flex flex-col items-center justify-between px-8 py-2 text-secondary bg-primary border-t-1 border-light-gray5 mb-0 z-[1000]">

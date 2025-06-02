@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
-import Customer from '@/pages/Customer';
 import Dashboard from '@/pages/Dashboard';
 import Products from '@/pages/Products';
 import Product from '@/pages/Product';
@@ -23,10 +22,6 @@ it('renders app', () => {
     {
       path: '/about',
       Component: About,
-    },
-    {
-      path: '/customer',
-      Component: Customer,
     },
     {
       path: '/contact',

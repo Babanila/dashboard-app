@@ -78,14 +78,14 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
       <div className="mt-4 md:mt-0 md:w-1/2 flex flex-col gap-4">
         <h1 className="text-2xl font-bold text-primary">{product.title}</h1>
         <p className="text-sm text-light-gray5">By {product.brand}</p>
-        <p className="text-base text-primary-one leading-relaxed">{product.description}</p>
+        <p className="text-base text-primary leading-relaxed">{product.description}</p>
 
         <div className="text-lg text-primary font-medium">
           ${product.price}{' '}
-          <span className="text-bgreen font-semibold">({product.discountPercentage}% off)</span>
+          <span className="text-bred font-semibold">({product.discountPercentage}% off)</span>
         </div>
 
-        <div className="text-sm space-y-1 text-light-gray5">
+        <div className="text-sm space-y-1 text-primary-one">
           <ListTile
             inputKey="Availability"
             value={<span className="text-bgreen font-medium">{product.availabilityStatus}</span>}
@@ -95,7 +95,7 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
           <ListTile inputKey="Rating" value={`${product.rating} / 5`} />
         </div>
 
-        <div className="text-sm space-y-2 text-light-gray5">
+        <div className="text-sm space-y-2 text-primary-one">
           <ListTile inputKey="Shipping" value={product.shippingInformation} />
           <ListTile inputKey="Warranty" value={product.warrantyInformation} />
           <ListTile inputKey="Return Policy" value={product.returnPolicy} />

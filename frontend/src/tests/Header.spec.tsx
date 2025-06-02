@@ -1,8 +1,7 @@
 import React from 'react';
+import { createRoutesStub } from 'react-router';
 import { render, screen } from '@testing-library/react';
 import Header from '@/components/Header';
-
-import { createRoutesStub } from 'react-router';
 
 jest.mock('util', () => ({
   TextEncoder: class {},
