@@ -20,7 +20,7 @@ describe('Button component', () => {
     render(
       <Button onClick={handleClick} disabled>
         Click Me
-      </Button>
+      </Button>,
     );
     fireEvent.click(screen.getByText(/click me/i));
     expect(handleClick).not.toHaveBeenCalled();
