@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 
 jest.mock('@/assets/dash-logo.webp', () => 'logo.png');
 jest.mock('@/assets/hamburger.svg', () => 'hamburger.svg');
-jest.mock('@/components/NavLinks', () => ({ navItems }: any) => (
+jest.mock('@/components/NavLinks', () => ({ navItems }: string[]) => (
   <ul>
     {navItems.map((item: string) => (
       <li key={item}>{item}</li>
