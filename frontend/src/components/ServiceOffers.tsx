@@ -18,7 +18,7 @@ const serviceOffers = [
   },
 ];
 
-type SServiceOffersProps = {
+type ServiceOffersProps = {
   id: number;
   title: string;
   description: string;
@@ -27,7 +27,7 @@ type SServiceOffersProps = {
 const ServiceOffers: FC = () => {
   return (
     <section className="w-full bg-primary py-16 px-6 mx-auto grid md:grid-cols-3 gap-8 text-center">
-      {serviceOffers.map(({ id, title, description }: SServiceOffersProps) => (
+      {serviceOffers.map(({ id, title, description }: ServiceOffersProps) => (
         <div key={id}>
           <h3 className="text-xl font-semibold mb-2">{title}</h3>
           <p>{description}</p>

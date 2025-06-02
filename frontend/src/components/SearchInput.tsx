@@ -4,7 +4,7 @@ import Button from './Button';
 
 type SearchInputProps = {
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onSearch: () => void;
 };
 
