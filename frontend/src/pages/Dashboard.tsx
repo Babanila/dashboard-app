@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import Button from '@/components/Button';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import ServiceOffers from '@/components/ServiceOffers';
-import SubscriptionForm from '@/components/SubcriptionForm';
+import SubscriptionForm from '@/components/SubscriptionForm';
 
 const Dashboard: FC = () => {
   return (

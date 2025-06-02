@@ -15,7 +15,7 @@ const SubscriptionForm: FC = () => {
           type="email"
           placeholder="Enter your email"
           value={email}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
             setEmail(e.target.value);
           }}
         />
