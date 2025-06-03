@@ -29,11 +29,12 @@ describe('SubscriptionForm', () => {
     expect(input.value).toBe('test@example.com');
   });
 
-  it('clicks the Subscribe button without error', () => {
+  it('clicks the Subscribe button without error', async () => {
     render(<SubscriptionForm />);
     const button = screen.getByRole('button', { name: /subscribe/i });
 
     fireEvent.click(button);
+
     expect(button).toBeEnabled();
   });
 });

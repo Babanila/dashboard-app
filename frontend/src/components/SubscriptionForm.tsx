@@ -1,9 +1,13 @@
-import { FC, ChangeEvent, useState } from 'react';
+import { FC, ChangeEvent, MouseEvent, useState } from 'react';
 import Button from './Button';
 import TextInput from './TextInput';
 
 const SubscriptionForm: FC = () => {
   const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
 
   return (
     <section className="py-16 px-6 text-center bg-primary text-secondary">
@@ -22,7 +26,7 @@ const SubscriptionForm: FC = () => {
         <Button
           className="bg-secondary text-primary px-6 py-3 rounded font-semibold hover:bg-bgreen"
           type="submit"
-          onClick={() => {}}
+          onClick={handleSubmit}
         >
           Subscribe
         </Button>

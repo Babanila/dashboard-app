@@ -1,11 +1,11 @@
-import { FC, ReactNode } from 'react';
+import { MouseEvent, FC, ReactNode } from 'react';
 
 type ButtonProps = {
   type?: 'submit' | 'reset' | 'button';
   className?: string;
   disabled?: boolean;
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button: FC<ButtonProps> = ({
