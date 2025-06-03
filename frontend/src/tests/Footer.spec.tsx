@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import Footer from '@/components/Footer';
+import type { NavLinksProps } from '@/components/NavLinks';
 
 jest.mock('@/assets/dash-logo.webp', () => 'logo.png');
 jest.mock('@/assets/hamburger.svg', () => 'hamburger.svg');
-jest.mock('@/components/NavLinks', () => (navItems: string[]) => (
+jest.mock('@/components/NavLinks', () => ({ navItems }: NavLinksProps) => (
   <ul>
     {navItems.map((item: string) => (
       <li key={item}>{item}</li>
