@@ -1,6 +1,6 @@
 import { FC, ChangeEvent } from 'react';
 
-type TextInputProps = {
+export type TextInputProps = {
   error?: string;
   label?: string;
   name?: string;

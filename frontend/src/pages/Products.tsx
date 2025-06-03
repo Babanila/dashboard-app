@@ -25,20 +25,18 @@ const Products: FC = () => {
     navigate(`/products/${productId}`);
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setSearchTerm(e.target.value);
+    setTriggerSearch(false);
+  };
+
   const handleSearch = useCallback(() => {
     setTriggerSearch(true);
   }, []);
 
   return (
     <div className="h-full flex flex-col bg-secondary py-8 space-y-16">
-      <SearchInput
-        value={searchTerm}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setSearchTerm(e.target.value);
-          setTriggerSearch(false);
-        }}
-        onSearch={handleSearch}
-      />
+      <SearchInput value={searchTerm} onChange={handleChange} onSearch={handleSearch} />
 
       {error && <p className="flex justify-center text-bred">Error searching for products</p>}
 

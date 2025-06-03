@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import TextInput from './TextInput';
 import Button from './Button';
 
-type SearchInputProps = {
+export type SearchInputProps = {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onSearch: () => void;
