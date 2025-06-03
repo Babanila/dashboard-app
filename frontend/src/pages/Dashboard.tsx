@@ -19,7 +19,7 @@ const Dashboard: FC = () => {
 export default Dashboard;
 
 const WelcomeSection = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleGoToProducts = () => {
     navigate('/products');
