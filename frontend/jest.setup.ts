@@ -3,10 +3,10 @@ import { TextDecoder, TextEncoder } from 'util';
 
 Object.defineProperty(window, 'TextEncoder', {
   writable: true,
-  value: TextEncoder
+  value: TextEncoder,
 });
 
 Object.defineProperty(window, 'TextDecoder', {
   writable: true,
-  value: TextDecoder
+  value: TextDecoder,
 });
