@@ -1,4 +1,3 @@
-import React from 'react';
 import { MemoryRouter } from 'react-router';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Header from '@/components/Header';

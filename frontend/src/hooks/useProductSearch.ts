@@ -40,7 +40,7 @@ export const useProductSearch = (query: string, limit: number = 30, skip: number
     return () => {
       controller.abort();
     };
-  }, [query]);
+  }, [query, limit, skip]);
 
   return {
     isLoading,

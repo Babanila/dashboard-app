@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useState } from 'react';
+import { FC, ChangeEvent, useState } from 'react';
 import Button from './Button';
 import TextInput from './TextInput';
 

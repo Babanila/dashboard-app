@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router';
 import logo from '../assets/dash-logo.webp';
 import hamburger from '../assets/hamburger.svg';

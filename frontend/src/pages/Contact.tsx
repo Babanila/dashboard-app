@@ -1,4 +1,4 @@
-import React, { useState, FC, ChangeEvent, FormEvent } from 'react';
+import { useState, FC, ChangeEvent, FormEvent } from 'react';
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import Tile from '@/components/Tile';

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useProductDetails } from '@/hooks/useProduct';
 import Button from '@/components/Button';

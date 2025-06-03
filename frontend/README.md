@@ -52,3 +52,30 @@ export default tseslint.config({
   },
 });
 ```
+
+# Red Flags
+
+Unfortunately, after review of your task by our team, we have decided not to move forward for the the reasons below:
+Decided to create all the css classes in one file, which is suboptimal, since they should be inside their respective component/component folder (easier access) .
+Single responsibility principle not used, the todo-context is a context and at the same time calls the api services.
+Messy code, context calls the api, and then the App component needs to fetch it with a React.useEffect hook (why not do it straight away and avoid it?).
+Heading must be responsible to set its own styles, to avoid situations like this <Heading className="notexisting"/>
+Button doesn't take into consideration the disable html prop, instead the onClick is not called with a condition.
+Heading is not optimal, it received a class h1/h2/ etc, but at the same time it receives a level that sets h1/h2 etc. (also has a prop that is not needed at all 'position').
+useTodoSummary(state.todos); why not use the useTodos inside the useTodoSummary?
+TodoList, currentTime const is not needed here, should be inside the TodoITem.
+useTodoSummary, no need for 2 state variables completed and unCompleted (unCompleted = total - completed).
+api url is in a const passed to the TodoProvider.
+
+describe('User', () => {
+test('renders heading', async () => {
+render(<Users />);
+expect(screen.getByRole('heading', { name: 'Users' })).toBeInTheDocument();
+});
+
+test('renders a list of users', async () => {
+render(<Users />);
+const users = await screen.findAllByRole('listitem');
+expect(users).toHaveLength(3);
+});
+});

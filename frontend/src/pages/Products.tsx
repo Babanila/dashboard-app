@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useCallback, useMemo, useState } from 'react';
+import { FC, ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useProducts } from '@/hooks/useProducts';
