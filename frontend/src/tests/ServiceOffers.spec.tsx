@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import ServiceOffers from "@/components/ServiceOffers";
+import { render, screen } from "@testing-library/react";
 
 describe("ServiceOffers", () => {
 	it("renders all service offers with title and description", () => {
@@ -11,10 +11,10 @@ describe("ServiceOffers", () => {
 			{ title: "Secure Payments", description: "Your data is safe with us" },
 		];
 
-		offers.forEach(({ title, description }) => {
+		for (const { title, description } of offers) {
 			expect(screen.getByText(title)).toBeInTheDocument();
 			expect(screen.getByText(description)).toBeInTheDocument();
-		});
+		}
 	});
 
 	it("renders exactly three offer blocks", () => {

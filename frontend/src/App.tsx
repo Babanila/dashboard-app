@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Dashboard from "@/pages/Dashboard";
-import Products from "@/pages/Products";
 import Product from "@/pages/Product";
+import Products from "@/pages/Products";
+import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
 
 function App() {

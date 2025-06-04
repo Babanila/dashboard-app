@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import Tile from "@/components/Tile";
+import { render, screen } from "@testing-library/react";
 
 describe("Tile", () => {
 	it("renders the title and description", () => {

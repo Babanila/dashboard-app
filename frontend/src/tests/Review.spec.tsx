@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import Review, { DisplayReviews } from "@/components/Review";
+import { render, screen } from "@testing-library/react";
 
 describe("Review component", () => {
 	const props = {

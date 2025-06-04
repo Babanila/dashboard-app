@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { useNavigate } from "react-router";
 import Button from "@/components/Button";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import ServiceOffers from "@/components/ServiceOffers";
 import SubscriptionForm from "@/components/SubscriptionForm";
+import type { FC } from "react";
+import { useNavigate } from "react-router";
 
 const Dashboard: FC = () => {
 	return (
@@ -33,8 +33,9 @@ const WelcomeSection = () => {
 			<Button
 				className="bg-secondary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-bgreen transition cursor-pointer"
 				onClick={handleGoToProducts}
-				children="Shop Now"
-			/>
+			>
+				Shop Now
+			</Button>
 		</section>
 	);
 };

@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
 import SearchInput from "@/components/SearchInput";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 describe("SearchInput", () => {
 	const setup = () => {

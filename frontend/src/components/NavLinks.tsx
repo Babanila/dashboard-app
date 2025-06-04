@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { NavLink, NavLinkRenderProps } from "react-router";
+import type { FC } from "react";
+import { NavLink, type NavLinkRenderProps } from "react-router";
 
 export type NavLinksProps = {
 	navItems: string[];

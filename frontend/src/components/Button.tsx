@@ -1,4 +1,4 @@
-import { MouseEvent, FC, ReactNode } from "react";
+import type { FC, MouseEvent, ReactNode } from "react";
 
 type ButtonProps = {
 	type?: "submit" | "reset" | "button";

@@ -1,5 +1,5 @@
-import { FC } from "react";
 import Tile from "@/components/Tile";
+import type { FC } from "react";
 
 const About: FC = () => {
 	return (

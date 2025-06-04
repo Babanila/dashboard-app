@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { createClient } from "@/api/productsClient";
-import { ProductDetailsProps } from "@/types";
+import type { ProductDetailsProps } from "@/types";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const client = createClient(axios);
 

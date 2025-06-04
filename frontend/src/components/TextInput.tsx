@@ -1,4 +1,4 @@
-import { FC, ChangeEvent } from "react";
+import type { ChangeEvent, FC } from "react";
 
 export type TextInputProps = {
 	error?: string;

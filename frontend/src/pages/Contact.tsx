@@ -1,7 +1,8 @@
-import { useState, FC, ChangeEvent, FormEvent } from "react";
 import Button from "@/components/Button";
 import TextInput from "@/components/TextInput";
 import Tile from "@/components/Tile";
+import { useState } from "react";
+import type { ChangeEvent, FC, FormEvent } from "react";
 
 interface FormData {
 	name: string;
@@ -129,7 +130,9 @@ const Contact: FC = () => {
 							value={formData.subject}
 							onChange={handleChange}
 							placeholder="Project Inquiry"
-							className={`block w-full px-3 py-2 bg-secondary border border-primary rounded-md shadow-sm placeholder-light-gray5 focus-visible:outline-1 sm:text-sm text-primary`}
+							className={
+								"block w-full px-3 py-2 bg-secondary border border-primary rounded-md shadow-sm placeholder-light-gray5 focus-visible:outline-1 sm:text-sm text-primary"
+							}
 						/>
 						<TextInput
 							label="Message"

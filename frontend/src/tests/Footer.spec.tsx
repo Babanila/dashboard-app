@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
 import Footer from "@/components/Footer";
 import type { NavLinksProps } from "@/components/NavLinks";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 
 jest.mock("@/assets/dash-logo.webp", () => "logo.png");
 jest.mock("@/assets/hamburger.svg", () => "hamburger.svg");
@@ -25,14 +25,15 @@ describe("Footer Component", () => {
 	});
 
 	it("renders navigation links", () => {
+		const menu = ["About", "Products", "Contact"];
 		render(
 			<MemoryRouter>
 				<Footer />
 			</MemoryRouter>,
 		);
-		["About", "Products", "Contact"].forEach((text) => {
+		for (const text of menu) {
 			expect(screen.getByText(text)).toBeInTheDocument();
-		});
+		}
 	});
 
 	it("renders social media links", () => {

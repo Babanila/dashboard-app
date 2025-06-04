@@ -1,5 +1,5 @@
-import { AxiosInstance, GenericAbortSignal } from "axios";
 import { PAGE_SIZE } from "@/utils/constant";
+import type { AxiosInstance, GenericAbortSignal } from "axios";
 
 const BASE_URL = import.meta.env.VITE_APP_SERVER_URL || "";
 
@@ -28,7 +28,7 @@ export const createClient = (
 			return result;
 		} catch (error) {
 			console.error(error);
-			return `Error fetching products`;
+			return "Error fetching products";
 		}
 	};
 

@@ -1,11 +1,12 @@
-import { FC, ChangeEvent, useCallback, useMemo, useState } from "react";
-import { useNavigate } from "react-router";
-import { useDebounce } from "@/hooks/useDebounce";
-import { useProducts } from "@/hooks/useProducts";
-import { useProductSearch } from "@/hooks/useProductSearch";
 import { ProductGroup } from "@/components/FeaturedProducts";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import SearchInput from "@/components/SearchInput";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useProductSearch } from "@/hooks/useProductSearch";
+import { useProducts } from "@/hooks/useProducts";
+import type { ChangeEvent, FC } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 
 const Products: FC = () => {
 	const navigate = useNavigate();

@@ -1,10 +1,11 @@
-import { FC, ReactNode, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import { useProductDetails } from "@/hooks/useProduct";
 import Button from "@/components/Button";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { DisplayReviews } from "@/components/Review";
-import { ProductDetailsProps } from "@/types";
+import { useProductDetails } from "@/hooks/useProduct";
+import type { ProductDetailsProps } from "@/types";
+import type { FC, ReactNode } from "react";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router";
 
 const Product: FC = () => {
 	const navigate = useNavigate();
@@ -39,14 +40,16 @@ const Product: FC = () => {
 				<Button
 					className="w-35 bg-secondary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-bgreen transition cursor-pointer"
 					onClick={handleBack}
-					children="Back"
-				/>
+				>
+					Back
+				</Button>
 
 				<Button
 					className="w-35 bg-bgreen text-primary font-semibold px-6 py-3 rounded-lg hover:bg-secondary transition cursor-pointer"
 					onClick={handleAddToCart}
-					children="Add to cart"
-				/>
+				>
+					Add to cart
+				</Button>
 			</div>
 		</div>
 	);
@@ -81,13 +84,15 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({
 						<Button
 							onClick={() => onChangeImage("previous")}
 							className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-primary text-secondary hover:bg-bgreen p-2 rounded-full"
-							children="&lt;"
-						/>
+						>
+							&lt;
+						</Button>
 						<Button
 							onClick={() => onChangeImage("next")}
 							className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-secondary hover:bg-bgreen p-2 rounded-full"
-							children="&gt;"
-						/>
+						>
+							&gt;
+						</Button>
 					</>
 				)}
 			</div>

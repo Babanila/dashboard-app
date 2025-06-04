@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 type LoadingSpinnerProps = {
 	size?: string;
@@ -15,9 +15,10 @@ const LoadingSpinner: FC<LoadingSpinnerProps> = ({
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
-			role="status"
 			aria-label="Loading"
+			xlinkTitle="Loading"
 		>
+			<title>Loading Icon</title>
 			<circle
 				className="opacity-25"
 				cx="12"

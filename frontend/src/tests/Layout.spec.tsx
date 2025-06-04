@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter, Routes, Route } from "react-router";
 import Layout from "@/components/Layout";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter, Route, Routes } from "react-router";
 
 const TestComponent = () => (
 	<div data-testid="outlet-content">Test Content</div>

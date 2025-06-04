@@ -1,4 +1,5 @@
-import { FC, ChangeEvent, MouseEvent, useState } from "react";
+import type { ChangeEvent, FC, MouseEvent } from "react";
+import { useState } from "react";
 import Button from "./Button";
 import TextInput from "./TextInput";
 

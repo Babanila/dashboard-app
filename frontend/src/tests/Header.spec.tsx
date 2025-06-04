@@ -1,7 +1,7 @@
-import { MemoryRouter } from "react-router";
-import { render, screen, fireEvent } from "@testing-library/react";
 import Header from "@/components/Header";
 import type { NavLinksProps } from "@/components/NavLinks";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 
 jest.mock("@/assets/dash-logo.webp", () => "logo.png");
 jest.mock("@/assets/hamburger.svg", () => "hamburger.svg");

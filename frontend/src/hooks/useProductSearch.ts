@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { createClient } from "@/api/productsClient";
-import { ProductDetailsProps } from "@/types";
+import type { ProductDetailsProps } from "@/types";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const client = createClient(axios);
 
-export const useProductSearch = (
-	query: string,
-	limit: number = 30,
-	skip: number = 0,
-) => {
+export const useProductSearch = (query: string, limit?: 30, skip?: 0) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 	const [products, setProducts] = useState<ProductDetailsProps[]>([]);

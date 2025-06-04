@@ -1,6 +1,6 @@
-import { ChangeEvent } from "react";
-import TextInput from "./TextInput";
+import type { ChangeEvent } from "react";
 import Button from "./Button";
+import TextInput from "./TextInput";
 
 export type SearchInputProps = {
 	value: string;
@@ -21,9 +21,10 @@ const SearchInput = ({ value, onChange, onSearch }: SearchInputProps) => {
 
 			<Button
 				className="w-30 max-h-fit bg-secondary text-primary font-semibold px-6 py-3 border-1 border-primary rounded-lg hover:bg-bgreen hover:border-bgreen transition cursor-pointer"
-				children="Search"
 				onClick={onSearch}
-			/>
+			>
+				Search
+			</Button>
 		</div>
 	);
 };

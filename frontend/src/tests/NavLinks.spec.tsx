@@ -1,6 +1,6 @@
+import NavLinks from "@/components/NavLinks";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import NavLinks from "@/components/NavLinks";
 
 describe("NavLinks", () => {
 	const navItems = ["About", "Products", "Contact"];
@@ -12,11 +12,11 @@ describe("NavLinks", () => {
 			</MemoryRouter>,
 		);
 
-		navItems.forEach((item) => {
+		for (const item of navItems) {
 			const link = screen.getByText(item);
 			expect(link).toBeInTheDocument();
 			expect(link).toHaveAttribute("href", `/${item.toLowerCase()}`);
-		});
+		}
 	});
 
 	it("applies correct classes for inactive links", () => {

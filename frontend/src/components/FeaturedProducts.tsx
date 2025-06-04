@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { useNavigate } from "react-router";
 import { useProducts } from "@/hooks/useProducts";
+import type { ProductDetailsProps } from "@/types";
+import type { FC } from "react";
+import { useNavigate } from "react-router";
 import Button from "./Button";
 import LoadingSpinner from "./LoadingSpinner";
-import { ProductDetailsProps } from "@/types";
 
 const FeaturedProducts: FC = () => {
 	const navigate = useNavigate();
@@ -97,7 +97,7 @@ export const FeaturedProductCard: FC<FeaturedProductCardProps> = ({
 			className="bg-secondary rounded-lg shadow hover:shadow-md transition p-4"
 		>
 			<div className="flex justify-center items-center bg-light-gray2 h-40 rounded mb-4">
-				{<img src={thumbnail} alt={`${title} image`} className="w-40 h-40" />}
+				{<img src={thumbnail} alt={title} className="w-40 h-40" />}
 			</div>
 			<h3 className="font-semibold text-lg mb-2">
 				{brand} {title}

@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
 import SubscriptionForm from "@/components/SubscriptionForm";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 describe("SubscriptionForm", () => {
 	it("renders heading and description", () => {

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { FaStar } from "react-icons/fa";
 
 interface ReviewProps {
@@ -17,14 +17,13 @@ const Review: FC<ReviewProps> = ({ reviewerName, comment, rating, date }) => {
 			<div className="flex items-center mb-2">
 				<div className="font-semibold text-primary mr-2">{reviewerName}</div>
 				<div className="flex">
-					{[...Array(5)].map((_, index) => {
-						const ratingValue = index + 1;
+					{[1, 2, 3, 4, 5].map((item) => {
 						return (
 							<button
-								key={index}
+								key={item}
 								type="button"
 								className={`${
-									rating >= ratingValue ? "text-yellow-400" : "text-gray-300"
+									rating >= item ? "text-yellow-400" : "text-gray-300"
 								} text-xl cursor-default}`}
 							>
 								<FaStar />

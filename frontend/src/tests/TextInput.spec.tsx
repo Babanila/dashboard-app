@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
 import TextInput from "@/components/TextInput";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 describe("TextInput", () => {
 	it("renders input with placeholder and value", () => {

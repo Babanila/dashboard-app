@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 type SocialLinkProps = {
 	href: string;
@@ -17,7 +17,7 @@ const SocialLink: FC<SocialLinkProps> = ({
 		<a
 			href={href}
 			target="_blank"
-			rel="noopener"
+			rel="noreferrer"
 			className="text-secondary hover:text-bgreen"
 			aria-label={label}
 		>
@@ -25,7 +25,8 @@ const SocialLink: FC<SocialLinkProps> = ({
 				className={`w-${iconSize} h-${iconSize}`}
 				fill="currentColor"
 				viewBox="0 0 24 24"
-				aria-hidden="true"
+				role="img"
+				aria-label={label}
 			>
 				<path d={path} />
 			</svg>
