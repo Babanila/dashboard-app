@@ -10,11 +10,7 @@ interface ReviewProps {
 
 const Review: React.FC<ReviewProps> = ({ reviewerName, comment, rating, date }) => {
   const currentDate = new Date(date);
-  const reviewTime = new Intl.DateTimeFormat('en-GB', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-}).format(currentDate);
+  const reviewTime = currentDate.toLocaleDateString('en-GB');
 
   return (
     <div className="review-container p-4 mb-4 border border-light-gray2 rounded-lg shadow-sm max-w-md">
