@@ -28,7 +28,7 @@ const TextInput: FC<TextInputProps> = ({
   return (
     <div>
       {label && (
-        <label htmlFor={name} className="block text-sm font-medium text-secondary mb-1">
+        <label htmlFor={name} className="w-full flex text-sm font-medium text-secondary mb-1">
           {label}
         </label>
       )}

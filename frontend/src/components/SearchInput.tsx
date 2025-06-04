@@ -10,7 +10,7 @@ export type SearchInputProps = {
 
 const SearchInput = ({ value, onChange, onSearch }: SearchInputProps) => {
   return (
-    <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-4">
+    <div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:space-y-0 md:space-x-4">
       <TextInput
         className="w-70 max-h-fit px-4 py-3 rounded text-primary bg-secondary border-1 border-primary md:w-100"
         value={value}
