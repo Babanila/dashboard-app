@@ -1,90 +1,93 @@
-import { AxiosInstance, GenericAbortSignal } from 'axios';
-import { PAGE_SIZE } from '@/utils/constant';
+import { AxiosInstance, GenericAbortSignal } from "axios";
+import { PAGE_SIZE } from "@/utils/constant";
 
-const BASE_URL = import.meta.env.VITE_APP_SERVER_URL || '';
+const BASE_URL = import.meta.env.VITE_APP_SERVER_URL || "";
 
-export const createClient = (axios: AxiosInstance, baseUrl: string = BASE_URL) => {
-  const getAllProducts = async () => {
-    // Check query in session storage
-    const storedProducts = sessionStorage.getItem('all-products');
+export const createClient = (
+	axios: AxiosInstance,
+	baseUrl: string = BASE_URL,
+) => {
+	const getAllProducts = async () => {
+		// Check query in session storage
+		const storedProducts = sessionStorage.getItem("all-products");
 
-    if (storedProducts && storedProducts.length > 0) {
-      return JSON.parse(storedProducts);
-    }
+		if (storedProducts && storedProducts.length > 0) {
+			return JSON.parse(storedProducts);
+		}
 
-    const url = `${baseUrl}/api/v1/products`;
-    try {
-      const response = await axios.get(url);
+		const url = `${baseUrl}/api/v1/products`;
+		try {
+			const response = await axios.get(url);
 
-      if (response.data.Error) {
-        throw new Error(response.data.Error);
-      }
+			if (response.data.Error) {
+				throw new Error(response.data.Error);
+			}
 
-      const result = response.data.products || [];
-      sessionStorage.setItem('all-products', JSON.stringify(result));
-      return result;
-    } catch (error) {
-      console.error(error);
-      return `Error fetching products`;
-    }
-  };
+			const result = response.data.products || [];
+			sessionStorage.setItem("all-products", JSON.stringify(result));
+			return result;
+		} catch (error) {
+			console.error(error);
+			return `Error fetching products`;
+		}
+	};
 
-  const getProducts = async (
-    query: string,
-    limit: number,
-    skip: number,
-    signal: GenericAbortSignal,
-  ) => {
-    // Check query in session storage
-    const storedQuery = sessionStorage.getItem(query);
+	const getProducts = async (
+		query: string,
+		limit: number,
+		skip: number,
+		signal: GenericAbortSignal,
+	) => {
+		// Check query in session storage
+		const storedQuery = sessionStorage.getItem(query);
 
-    if (storedQuery && storedQuery.length > 0) {
-      return JSON.parse(storedQuery);
-    }
+		if (storedQuery && storedQuery.length > 0) {
+			return JSON.parse(storedQuery);
+		}
 
-    const url = `${baseUrl}/api/v1/products/search?name=${query}&limit=${limit}&skip=${skip}`;
-    const encodedUrl = encodeURI(url);
+		const url = `${baseUrl}/api/v1/products/search?name=${query}&limit=${limit}&skip=${skip}`;
+		const encodedUrl = encodeURI(url);
 
-    try {
-      const response = await axios.get(encodedUrl, { signal });
+		try {
+			const response = await axios.get(encodedUrl, { signal });
 
-      if (response.data.Error) {
-        throw new Error(response.data.Error);
-      }
+			if (response.data.Error) {
+				throw new Error(response.data.Error);
+			}
 
-      const result = response.data.products?.slice(0, PAGE_SIZE) || [];
-      sessionStorage.setItem(query, JSON.stringify(result));
-      return result;
-    } catch (error) {
-      console.error(error);
-      return `Error searching for product with query: ${query}`;
-    }
-  };
+			const result = response.data.products?.slice(0, PAGE_SIZE) || [];
+			sessionStorage.setItem(query, JSON.stringify(result));
+			return result;
+		} catch (error) {
+			console.error(error);
+			return `Error searching for product with query: ${query}`;
+		}
+	};
 
-  const getProductDetails = async (id: string, signal: GenericAbortSignal) => {
-    // Check product ID in local storage
-    const productStored = localStorage.getItem(id);
+	const getProductDetails = async (id: string, signal: GenericAbortSignal) => {
+		// Check product ID in local storage
+		const productStored = localStorage.getItem(id);
 
-    if (productStored) {
-      return JSON.parse(productStored);
-    }
+		if (productStored) {
+			return JSON.parse(productStored);
+		}
 
-    const url = `${baseUrl}/api/v1/products/${id}`;
+		const url = `${baseUrl}/api/v1/products/${id}`;
 
-    try {
-      const response = await axios.get(url, { signal });
+		try {
+			const response = await axios.get(url, { signal });
 
-      if (response.data.Error) {
-        throw new Error(response.data.Error);
-      }
+			if (response.data.Error) {
+				throw new Error(response.data.Error);
+			}
 
-      localStorage.setItem(id, JSON.stringify(response.data));
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return `Error fetching product details with id: ${id}`;
-    }
-  };
+			localStorage.setItem(id, JSON.stringify(response.data));
+			return response.data;
+		} catch (error) {
+			console.error(error);
+			return `Error fetching product details with id: ${id}`;
+		}
+	};
 
-  return { getAllProducts, getProducts, getProductDetails };
+	return { getAllProducts, getProducts, getProductDetails };
 };

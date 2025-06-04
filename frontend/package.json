@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "biome check .",
 		"lint:fix": "biome format --write ./src",
-    "format": "prettier --write .",
+    "format": "prettier --write . --fix",
     "preview": "vite preview",
     "test": "jest",
     "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/components/**/*.{ts,tsx}'",
