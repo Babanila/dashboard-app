@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useProductDetails } from '@/hooks/useProduct';
 import Button from '@/components/Button';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import { DisplayReviews } from '@/components/Review';
 import { ProductDetailsProps } from '@/types';
 
 const Product: FC = () => {
@@ -12,6 +13,10 @@ const Product: FC = () => {
 
   const handleBack = () => {
     navigate(-1);
+  };
+
+  const handleAddToCart = () => {
+    console.log('Cart button clicked!!!');
   };
 
   return (
@@ -28,11 +33,19 @@ const Product: FC = () => {
         <p className="flex justify-center text-bred">Error loading product details</p>
       )}
 
-      <Button
-        className="w-32 bg-secondary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-bgreen transition cursor-pointer"
-        onClick={handleBack}
-        children="Back"
-      />
+      <div className="flex flex-col-reverse justify-center space-y-reverse space-y-4 mb-4 md:flex-row md:space-y-0 md:space-x-8 md:mb-12">
+        <Button
+          className="w-35 bg-secondary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-bgreen transition cursor-pointer"
+          onClick={handleBack}
+          children="Back"
+        />
+
+        <Button
+          className="w-35 bg-bgreen text-primary font-semibold px-6 py-3 rounded-lg hover:bg-secondary transition cursor-pointer"
+          onClick={handleAddToCart}
+          children="Add to cart"
+        />
+      </div>
     </div>
   );
 };
@@ -52,7 +65,7 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto bg-secondary rounded-2xl shadow-lg overflow-hidden border border-light-gray2 p-6 my-6 flex flex-col items-center justify-center md:flex-row md:gap-6">
+    <div className="w-full max-w-5xl mx-auto bg-secondary rounded-lg shadow-lg overflow-hidden border border-light-gray2 p-6 my-6 flex flex-col items-center justify-center md:flex-row md:gap-6">
       <div className="relative w-full md:w-1/2 flex items-center justify-center">
         <img
           className="object-contain h-80 w-full rounded-md"
@@ -100,6 +113,8 @@ export const ProductCard: FC<{ product: ProductDetailsProps }> = ({ product }) =
           <ListTile inputKey="Warranty" value={product.warrantyInformation} />
           <ListTile inputKey="Return Policy" value={product.returnPolicy} />
         </div>
+
+        <DisplayReviews reviews={product.reviews} />
       </div>
     </div>
   );

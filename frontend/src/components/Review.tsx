@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FaStar } from 'react-icons/fa';
 
 interface ReviewProps {
@@ -8,7 +8,7 @@ interface ReviewProps {
   date: Date | string;
 }
 
-const Review: React.FC<ReviewProps> = ({ reviewerName, comment, rating, date }) => {
+const Review: FC<ReviewProps> = ({ reviewerName, comment, rating, date }) => {
   const currentDate = new Date(date);
   const reviewTime = currentDate.toLocaleDateString('en-GB');
 
