@@ -16,12 +16,12 @@ describe("SocialLink", () => {
 		expect(link).toBeInTheDocument();
 		expect(link).toHaveAttribute("href", props.href);
 		expect(link).toHaveAttribute("target", "_blank");
-		expect(link).toHaveAttribute("rel", "noopener");
+		expect(link).toHaveAttribute("rel", "noreferrer");
 	});
 
 	it("renders the SVG icon with correct size and path", () => {
 		render(<SocialLink {...props} />);
-		const svg = screen.getByLabelText(props.label).querySelector("svg");
+		const svg = screen.getByRole("img", { name: props.label });
 
 		expect(svg).toBeInTheDocument();
 		expect(svg).toHaveAttribute("viewBox", "0 0 24 24");

@@ -17,6 +17,7 @@ const LoadingSpinner: FC<LoadingSpinnerProps> = ({
 			viewBox="0 0 24 24"
 			aria-label="Loading"
 			xlinkTitle="Loading"
+			role="img"
 		>
 			<title>Loading Icon</title>
 			<circle

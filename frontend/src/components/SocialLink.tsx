@@ -19,14 +19,14 @@ const SocialLink: FC<SocialLinkProps> = ({
 			target="_blank"
 			rel="noreferrer"
 			className="text-secondary hover:text-bgreen"
-			aria-label={label}
+			aria-label={`${label}`}
 		>
 			<svg
 				className={`w-${iconSize} h-${iconSize}`}
 				fill="currentColor"
 				viewBox="0 0 24 24"
-				role="img"
 				aria-label={label}
+				role="img"
 			>
 				<path d={path} />
 			</svg>

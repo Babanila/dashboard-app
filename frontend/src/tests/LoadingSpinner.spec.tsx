@@ -5,7 +5,7 @@ describe("LoadingSpinner", () => {
 	it("renders with default props", () => {
 		render(<LoadingSpinner />);
 
-		const spinner = screen.getByRole("status", { name: /loading/i });
+		const spinner = screen.getByRole("img", { name: /loading/i });
 
 		expect(spinner).toBeInTheDocument();
 		expect(spinner).toHaveClass("animate-spin");
@@ -17,7 +17,7 @@ describe("LoadingSpinner", () => {
 	it("applies custom size and color props", () => {
 		render(<LoadingSpinner size="w-10 h-10" color="text-red-500" />);
 
-		const spinner = screen.getByRole("status", { name: /loading/i });
+		const spinner = screen.getByRole("img", { name: /loading/i });
 
 		expect(spinner).toHaveClass("w-10");
 		expect(spinner).toHaveClass("h-10");
