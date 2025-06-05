@@ -9,7 +9,7 @@ import NavLinks from "./NavLinks";
 const headerNavItems = ["Products", "Contact", "About"];
 
 function Header() {
-	const [itemCount, setItemCount] = useState(0);
+	const [itemCount, setItemCount] = useState(22);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const toggleMenu = () => setMenuOpen((prev) => !prev);
 
@@ -26,7 +26,7 @@ function Header() {
 				</nav>
 
 				<NavLink to="/cart" className="relative shrink-0 md:mr-4 md:ml-20">
-					<img src={cartLogo} alt="Cart Logo" className="w-8 md:w-10 h-auto" />
+					<img src={cartLogo} alt="Cart Logo" className="w-8 h-auto md:w-10" />
 					{itemCount > 0 && (
 						<span className="absolute -top-1 -right-1 bg-bred text-secondary rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold md:w-6 md:h-6 transition-all">
 							{itemCount}
